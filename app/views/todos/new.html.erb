@@ -1,0 +1,26 @@
+<h1>Create a new Todo</h1>
+
+
+<% if @todo.errors.any? %>
+    <h2>The following errors..</h2>
+    <ul>
+        <% @todo.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <%end%>
+    </ul>
+<%end%>
+
+<%= form_for @todo do |todos| %>
+    <p>
+    <%= todos.label :name %><br>
+    <%= todos.text_field :name %>
+    </p>
+
+    <p>
+    <%= todos.label :description %><br>
+    <%= todos.text_area :description %>
+    </p>
+    <p>
+    <%= todos.submit %>
+    </p>
+    <%end%>
